@@ -1,0 +1,12 @@
+[project]
+name = "prompt-ver-core"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13.7"
+dependencies = [
+    "aiosqlite>=0.22.1",
+    "nats-py>=2.14.0",
+    "rich>=14.3.3",
+    "sqlalchemy>=2.0.48",
+    "structlog>=25.5.0",
+]
