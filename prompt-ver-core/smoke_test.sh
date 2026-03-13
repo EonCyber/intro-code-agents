@@ -59,7 +59,7 @@ echo ""
 bold "1. create_prompt"
 req "create_prompt" \
   "prompts.v1.commands.create_prompt" \
-  '{"name":"smoke-test-prompt"}'
+  '{"name":"smoke-test-prompt","content":"Initial version content"}'
 PROMPT_ID=$(extract "['data']['id']")
 echo "    prompt_id: $PROMPT_ID"
 echo ""

@@ -406,3 +406,45 @@ O domínio não deve depender diretamente do logger.
 O foco exclusivo é conectar o sistema ao mundo externo mantendo a arquitetura hexagonal íntegra.
 ```
 
+## Modificacoes
+
+- Criacao de Prompt com Geracao de conteudo e ativacao
+```
+Objetivo 
+Alterar a funcionalidade create_prompt (criacao de prompt), para que o processo crie Prompt e PromptVersion (um prompt completo), incluindo a primeira versao e sua ativacao.
+
+Contexto Atual
+  Atualmente o servico execute da seguinte forma:
+
+  1. Recebe um dto CreatePromptCommand
+  2. Valida a entrada
+  3. Persiste apenas a entidade Prompt
+  4. Retorna um PromptResponse
+
+Mudancas esperadas:
+  1. Receber o dto do command atualizado (name e content)
+  2. Validar os campos de entrada
+  3. Criar e Persistir a Entidade Prompt e a PromptVersion associada ao Prompt
+  5. Ativar a versao criada
+  6. Retornar o Prompt Response atualizado com o atributo content e active version preenchidos.
+
+Resultados Esperados apos o Servico executar:
+
+Prompt 
+ - persistido
+ - active_version_id preenchido
+
+PromptVersion
+  - persistido
+  - associado ao Prompt
+  - Ativado
+
+Response
+  - Deve conter id, name, content, status, created_at, active_version_id
+
+Qualidade
+  - Manter imutabilidade do comando
+  - Manter a logica coesa
+  - Respeitar melhores praticas de codigo
+  
+```

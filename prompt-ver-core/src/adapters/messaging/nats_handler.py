@@ -110,7 +110,15 @@ class NatsMessageHandler:
     async def on_create_prompt(self, msg: Msg) -> None:
         use_case = CreatePromptUseCase(self._make_uow(), self._publisher)
         body = _parse(msg.data)
-        await self._handle(msg, use_case.execute(CreatePromptCommand(name=body["name"])))
+        await self._handle(
+            msg,
+            use_case.execute(
+                CreatePromptCommand(
+                    name=body["name"],
+                    content=body["content"],
+                )
+            ),
+        )
 
     async def on_add_version(self, msg: Msg) -> None:
         use_case = AddVersionUseCase(self._make_uow(), self._publisher)

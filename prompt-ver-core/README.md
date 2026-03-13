@@ -27,8 +27,9 @@ Shift + Tab – autoriza o claude escrever arquivos livremente na sessão
     - ex: `/export session.md`
 `/init` – Cria um arquivo claude.md no diretório atual.
 
-`/execute` – Modo default de execução de açoes.
-`/plan` – Habilita modo Plan que é um modo de pensamento, onde vai quebrar cada ação em um plano antes de executar.
+
+`/plan` – Habilita modo Plan que é um modo de planejamento, onde vai quebrar cada ação em um plano antes de executar. (2x Shift+Tab ON ,depois 1x Shift+Tab Off)
+
 
 # Aumentando o "Pensamento" do Claude
     Think --- Pense

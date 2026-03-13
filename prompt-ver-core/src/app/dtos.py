@@ -8,6 +8,7 @@ from uuid import UUID
 @dataclass(frozen=True)
 class CreatePromptCommand:
     name: str
+    content: str
 
 
 @dataclass(frozen=True)
@@ -69,6 +70,7 @@ class PromptResponse:
     active_version_id: UUID | None
     created_at: datetime
     updated_at: datetime
+    content: str | None = None
 
 
 @dataclass(frozen=True)
